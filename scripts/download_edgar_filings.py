@@ -6,7 +6,8 @@ Command-line utility for collecting S-K 1300 technical reports from EDGAR.
 import argparse
 from pathlib import Path
 
-from supplymri import EdgarDownloader
+from supplymri import EdgarClient
+from supplymri.workflows import download_edgar_documents
 
 
 def parse_args() -> argparse.Namespace:
@@ -47,8 +48,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--dest",
         type=Path,
-        default=Path("data/edgar"),
-        help="Directory where documents will be stored.",
+        help="Directory where documents will be stored (defaults to the client setting).",
     )
     parser.add_argument(
         "--user-agent",
@@ -81,13 +81,13 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
-    downloader = EdgarDownloader(
+    client = EdgarClient(
         user_agent=args.user_agent,
         throttle_seconds=args.throttle,
     )
 
     print(f"Searching EDGAR for '{args.query}'...")
-    documents = downloader.search_documents(
+    documents = client.search_documents(
         args.query,
         limit=args.limit,
         forms=args.forms,
@@ -100,16 +100,19 @@ def main() -> None:
         print("No documents matched the query.")
         return
 
-    print(f"Found {len(documents)} documents. Downloading to {args.dest.resolve()} ...")
-    saved_paths = downloader.download_documents(
+    resolved_destination = client.resolve_destination(args.dest)
+    print(f"Found {len(documents)} documents. Downloading to {resolved_destination} ...")
+    workflow = download_edgar_documents(
+        client,
         documents,
-        args.dest,
+        destination=args.dest,
         include_metadata=not args.no_metadata,
         overwrite=args.overwrite,
     )
 
-    for doc, path in zip(documents, saved_paths):
+    for doc, path in zip(documents, workflow.saved_paths):
         print(f"{path} <- {doc.url}")
+    print(f"Saved {workflow.count} documents via EDGAR workflow.")
 
 
 if __name__ == "__main__":

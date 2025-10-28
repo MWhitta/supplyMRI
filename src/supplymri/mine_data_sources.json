@@ -60,6 +60,54 @@
       "agency": "Office of Surface Mining Reclamation and Enforcement (OSMRE)",
       "url": "https://amlis.osmre.gov/",
       "description": "Operational reporting system with detailed AML site records, funding, and status updates."
+    },
+    {
+      "name": "EPA Enforcement and Compliance History Online (ECHO)",
+      "agency": "U.S. Environmental Protection Agency (EPA)",
+      "url": "https://echo.epa.gov/",
+      "description": "Facility-level permits, inspections, violations, and enforcement actions across air, water, and waste programs; supports SIC/NAICS filters for isolating mining operations and can be cross-referenced with MSHA identifiers."
+    },
+    {
+      "name": "EPA Toxics Release Inventory (TRI)",
+      "agency": "U.S. Environmental Protection Agency (EPA)",
+      "url": "https://www.epa.gov/toxics-release-inventory-tri-program",
+      "description": "Annual reporting on chemical releases and waste management for covered facilities, including metal mines; TRI Explorer and the National Analysis enable sector and geographic filtering."
+    },
+    {
+      "name": "BLM ePlanning Project Portal",
+      "agency": "Bureau of Land Management (BLM)",
+      "url": "https://eplanning.blm.gov/",
+      "description": "Central hub for BLM project notices, scoping documents, environmental assessments, and EIS records affecting federal lands, including hard-rock and energy mineral proposals."
+    },
+    {
+      "name": "U.S. Army Corps Regulatory ORM2 Public Portal",
+      "agency": "U.S. Army Corps of Engineers",
+      "url": "https://permits.ops.usace.army.mil/orm-public",
+      "description": "Nationwide access to Section 404/10 permit actions, jurisdictional determinations, and compliance records, often referenced for mine-related dredge and fill activities."
+    },
+    {
+      "name": "EPA Environmental Impact Statement (EIS) Database",
+      "agency": "U.S. Environmental Protection Agency (EPA)",
+      "url": "https://cdxapps.epa.gov/cdx-enepa-II/public/action/eis/search",
+      "description": "Index of Environmental Impact Statements filed under NEPA with search by agency, keyword, or geography to track large mining and infrastructure projects."
+    },
+    {
+      "name": "OSMRE National Mine Map Repository (NMMR)",
+      "agency": "Office of Surface Mining Reclamation and Enforcement (OSMRE)",
+      "url": "https://mmr.osmre.gov/",
+      "description": "Archive of historic underground and surface mine maps supporting legacy workings research and subsidence risk analysis."
+    },
+    {
+      "name": "OSMRE Coal Regulatory Primacy Directory",
+      "agency": "Office of Surface Mining Reclamation and Enforcement (OSMRE)",
+      "url": "https://www.osmre.gov/programs/smcr/primacy-programs",
+      "description": "Directory of state-level coal regulatory programs with links to permitting data, inspection reports, and enforcement contacts for SMCRA primacy states."
+    },
+    {
+      "name": "Interstate Mining Compact Commission (IMCC) Resource Library",
+      "agency": "Interstate Mining Compact Commission (IMCC)",
+      "url": "https://www.imcc.isa.us/",
+      "description": "Multi-state partnership sharing model regulations, environmental reports, and data references for coal and hardrock mining oversight."
     }
   ],
   "state": [

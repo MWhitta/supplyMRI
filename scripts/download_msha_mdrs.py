@@ -10,7 +10,8 @@ import sys
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-from supplymri import MshaDownloader
+from supplymri import MshaClient
+from supplymri.workflows import download_msha_dataset
 
 
 def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
@@ -53,8 +54,7 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument(
         "--dest",
         type=Path,
-        default=Path("data/msha"),
-        help="Directory where datasets will be stored (default: %(default)s).",
+        help="Directory where datasets will be stored (defaults to the client setting).",
     )
     parser.add_argument(
         "--filter-json",
@@ -85,7 +85,7 @@ def parse_args(argv: Optional[List[str]] = None) -> argparse.Namespace:
     parser.add_argument(
         "--throttle",
         type=float,
-        default=MshaDownloader.DEFAULT_THROTTLE,
+        default=MshaClient.DEFAULT_THROTTLE,
         help="Seconds to pause between API requests (default: %(default)s).",
     )
     parser.add_argument(
@@ -160,14 +160,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"error: {exc}", file=sys.stderr)
         return 1
 
-    downloader = MshaDownloader(
+    client = MshaClient(
         api_key=api_key,
         throttle_seconds=args.throttle,
         user_agent=args.user_agent,
     )
 
     if args.list_endpoints:
-        entries = downloader.list_endpoints(agency=args.agency)
+        entries = client.list_endpoints(agency=args.agency)
         if not entries:
             print(f"No endpoints found for agency '{args.agency}'.")
             return 0
@@ -181,14 +181,16 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 1
 
     for endpoint in args.endpoints:
+        resolved_destination = client.resolve_destination(args.dest)
         print(
             f"Downloading endpoint '{endpoint}' (agency={args.agency}) "
-            f"into {args.dest.expanduser().resolve()} ..."
+            f"into {resolved_destination} ..."
         )
-        saved_paths = downloader.download_dataset(
+        workflow = download_msha_dataset(
+            client,
             args.agency,
             endpoint,
-            args.dest,
+            destination=args.dest,
             limit=args.limit,
             offset=args.offset,
             chunk_size=args.chunk_size,
@@ -197,12 +199,16 @@ def main(argv: Optional[List[str]] = None) -> int:
             filter_object=filter_object,
             extra_params=extra_params,
         )
-        if not saved_paths:
+        if not workflow.saved_paths:
             print(f"No data returned for endpoint '{endpoint}'.")
             continue
 
-        for path in saved_paths:
+        for path in workflow.saved_paths:
             print(path)
+        print(
+            f"Saved {workflow.count} chunk(s) for endpoint '{endpoint}' "
+            f"at {workflow.details.get('destination')}"
+        )
 
     return 0
 

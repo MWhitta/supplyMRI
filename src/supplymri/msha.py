@@ -12,8 +12,10 @@ import requests
 from requests import Response
 from urllib.parse import urljoin
 
+from .sources import DataSourceClient
 
-class MshaDownloader:
+
+class MshaClient(DataSourceClient):
     """
     Helper for interacting with the MSHA Mine Data Retrieval System (MDRS) API.
 
@@ -37,7 +39,9 @@ class MshaDownloader:
         throttle_seconds: float = DEFAULT_THROTTLE,
         session: Optional[requests.Session] = None,
         user_agent: Optional[str] = None,
+        default_destination: Optional[Path] = None,
     ) -> None:
+        super().__init__("msha", default_destination=default_destination or Path("data/msha"))
         if not api_key:
             raise ValueError("An API key is required to query the MSHA MDRS API.")
 
@@ -105,7 +109,7 @@ class MshaDownloader:
         self,
         agency: str,
         endpoint: str,
-        destination: Path,
+        destination: Optional[Path] = None,
         *,
         limit: Optional[int] = None,
         offset: int = 0,
@@ -124,7 +128,8 @@ class MshaDownloader:
         if chunk_size <= 0:
             raise ValueError("chunk_size must be positive.")
 
-        dest_dir = destination.expanduser().resolve() / agency.lower() / endpoint
+        dest_root = self.resolve_destination(destination)
+        dest_dir = dest_root / agency.lower() / endpoint
         dest_dir.mkdir(parents=True, exist_ok=True)
 
         saved_paths: List[Path] = []
@@ -193,6 +198,38 @@ class MshaDownloader:
                 break
 
         return saved_paths
+
+    def download(
+        self,
+        agency: str,
+        endpoint: str,
+        *,
+        destination: Optional[Path] = None,
+        limit: Optional[int] = None,
+        offset: int = 0,
+        chunk_size: int = 1000,
+        fmt: str = "json",
+        include_metadata: bool = True,
+        overwrite: bool = False,
+        filter_object: Optional[Mapping[str, Any]] = None,
+        extra_params: Optional[Mapping[str, Any]] = None,
+    ) -> List[Path]:
+        """
+        Unified entry point mirroring :meth:`download_dataset`.
+        """
+        return self.download_dataset(
+            agency,
+            endpoint,
+            destination,
+            limit=limit,
+            offset=offset,
+            chunk_size=chunk_size,
+            fmt=fmt,
+            include_metadata=include_metadata,
+            overwrite=overwrite,
+            filter_object=filter_object,
+            extra_params=extra_params,
+        )
 
     # ------------------------------------------------------------------ #
     # Internal helpers                                                   #
@@ -270,3 +307,7 @@ class MshaDownloader:
         delay = self.throttle_seconds - elapsed
         if delay > 0:
             time.sleep(delay)
+
+
+# Backwards compatibility
+MshaDownloader = MshaClient

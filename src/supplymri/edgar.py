@@ -9,6 +9,8 @@ from typing import Iterable, List, Optional
 
 import requests
 
+from .sources import DataSourceClient
+
 
 _DISPLAY_CIK_RE = re.compile(r"\s+\(CIK \d{10}\)$")
 
@@ -38,13 +40,20 @@ class EdgarDocument:
     score: Optional[float] = None
 
 
-class EdgarDownloader:
+class EdgarClient(DataSourceClient):
     """Query EDGAR's full-text search endpoint and download matching documents."""
 
     SEARCH_URL = "https://efts.sec.gov/LATEST/search-index"
     DEFAULT_USER_AGENT = "supplyMRI/0.1 (contact@supplymri.example)"
 
-    def __init__(self, user_agent: Optional[str] = None, throttle_seconds: float = 0.3) -> None:
+    def __init__(
+        self,
+        user_agent: Optional[str] = None,
+        throttle_seconds: float = 0.3,
+        *,
+        default_destination: Optional[Path] = None,
+    ) -> None:
+        super().__init__("edgar", default_destination=default_destination or Path("data/edgar"))
         if user_agent is None:
             user_agent = self.DEFAULT_USER_AGENT
         self.session = requests.Session()
@@ -126,13 +135,13 @@ class EdgarDownloader:
     def download_document(
         self,
         document: EdgarDocument,
-        destination: Path,
+        destination: Optional[Path] = None,
         *,
         include_metadata: bool = True,
         overwrite: bool = False,
     ) -> Path:
         """Download a single document and return the saved path."""
-        destination = destination.expanduser().resolve()
+        destination = self.resolve_destination(destination)
         accession_dir = destination / document.cik / document.adsh.replace("-", "")
         accession_dir.mkdir(parents=True, exist_ok=True)
 
@@ -152,26 +161,45 @@ class EdgarDownloader:
 
         return target_file
 
-    def download_documents(
+    def download(
         self,
         documents: Iterable[EdgarDocument],
-        destination: Path,
+        destination: Optional[Path] = None,
         *,
         include_metadata: bool = True,
         overwrite: bool = False,
     ) -> List[Path]:
         """Download every document in the iterable, returning their file paths."""
         saved: List[Path] = []
+        dest_root = self.resolve_destination(destination)
         for doc in documents:
             saved.append(
                 self.download_document(
                     doc,
-                    destination,
+                    dest_root,
                     include_metadata=include_metadata,
                     overwrite=overwrite,
                 )
             )
         return saved
+
+    def download_documents(
+        self,
+        documents: Iterable[EdgarDocument],
+        destination: Optional[Path] = None,
+        *,
+        include_metadata: bool = True,
+        overwrite: bool = False,
+    ) -> List[Path]:
+        """
+        Backwards-compatible alias for :meth:`download`.
+        """
+        return self.download(
+            documents,
+            destination,
+            include_metadata=include_metadata,
+            overwrite=overwrite,
+        )
 
     def _hit_to_document(self, hit: dict) -> EdgarDocument:
         source = hit.get("_source", {})
@@ -243,3 +271,7 @@ class EdgarDownloader:
         delay = self.throttle_seconds - elapsed
         if delay > 0:
             time.sleep(delay)
+
+
+# Backwards compatibility
+EdgarDownloader = EdgarClient
