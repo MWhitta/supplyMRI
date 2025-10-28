@@ -1,0 +1,367 @@
+{
+  "updated": "2025-10-28",
+  "federal": [
+    {
+      "name": "MSHA Mine Data Retrieval System",
+      "agency": "Mine Safety and Health Administration (MSHA)",
+      "url": "https://www.msha.gov/mine-data-retrieval-system",
+      "description": "Search interface for nationwide mine, operator, and enforcement records maintained by MSHA."
+    },
+    {
+      "name": "MSHA Open Data API",
+      "agency": "U.S. Department of Labor",
+      "url": "https://apiprod.dol.gov/datasets?agency=msha",
+      "description": "REST API catalog for MSHA accident, production, employment, and enforcement datasets."
+    },
+    {
+      "name": "Mineral Resources Data System (MRDS)",
+      "agency": "U.S. Geological Survey (USGS)",
+      "url": "https://mrdata.usgs.gov/mrds/",
+      "description": "USGS inventory of mineral resources and mining operations worldwide, including legacy U.S. mines."
+    },
+    {
+      "name": "USMIN Mineral Deposit Database",
+      "agency": "U.S. Geological Survey (USGS)",
+      "url": "https://mrdata.usgs.gov/usmin/",
+      "description": "Modern USGS deposit database with standardized attributes for mines and critical mineral prospects."
+    },
+    {
+      "name": "USGS Mineral Resources Online Spatial Data",
+      "agency": "U.S. Geological Survey (USGS)",
+      "url": "https://mrdata.usgs.gov/",
+      "description": "Central portal for USGS mining, geochemistry, and geophysical data downloads and web services."
+    },
+    {
+      "name": "National Minerals Information Center",
+      "agency": "U.S. Geological Survey (USGS)",
+      "url": "https://www.usgs.gov/centers/national-minerals-information-center",
+      "description": "Official statistics and commodity summaries on domestic and international mineral production."
+    },
+    {
+      "name": "BLM Mineral & Land Records System (MLRS)",
+      "agency": "Bureau of Land Management (BLM)",
+      "url": "https://mlrs.blm.gov/s/",
+      "description": "Public reporting for BLM mining claims, mineral leases, and land status case files."
+    },
+    {
+      "name": "BLM Mineral & Land Reports Portal",
+      "agency": "Bureau of Land Management (BLM)",
+      "url": "https://reports.blm.gov/reports/lr2000",
+      "description": "Downloadable LR2000 data extracts and standard reports covering federal mining claim activity."
+    },
+    {
+      "name": "OSMRE e-AMLIS Viewer",
+      "agency": "Office of Surface Mining Reclamation and Enforcement (OSMRE)",
+      "url": "https://www.osmre.gov/programs/aml/aml-reclamation/e-amlis",
+      "description": "Interactive portal summarizing abandoned mine land problem areas and reclamation projects."
+    },
+    {
+      "name": "OSMRE Abandoned Mine Land Inventory System",
+      "agency": "Office of Surface Mining Reclamation and Enforcement (OSMRE)",
+      "url": "https://amlis.osmre.gov/",
+      "description": "Operational reporting system with detailed AML site records, funding, and status updates."
+    }
+  ],
+  "state": [
+    {
+      "state": "Alabama",
+      "agency": "Alabama Surface Mining Commission",
+      "url": "https://surface-mining.alabama.gov/",
+      "description": "Regulates surface coal and industrial mineral mining and publishes permit and inspection data."
+    },
+    {
+      "state": "Alaska",
+      "agency": "Alaska Department of Natural Resources, Division of Mining, Land & Water",
+      "url": "https://dnr.alaska.gov/mlw/mining/",
+      "description": "Statewide mining claim maps, lease information, and reclamation guidance for Alaska operators."
+    },
+    {
+      "state": "Arizona",
+      "agency": "Arizona Geological Survey",
+      "url": "https://azgs.arizona.edu/",
+      "description": "Hosts AZMILS mine files, geologic maps, and mineral resources data for Arizona."
+    },
+    {
+      "state": "Arkansas",
+      "agency": "Arkansas Geological Survey",
+      "url": "https://www.geology.arkansas.gov/",
+      "description": "Provides mineral and mining datasets, maps, and publications for Arkansas."
+    },
+    {
+      "state": "California",
+      "agency": "California Geological Survey",
+      "url": "https://www.conservation.ca.gov/cgs",
+      "description": "Maintains statewide mineral resource zone mapping and mine hazard inventories."
+    },
+    {
+      "state": "Colorado",
+      "agency": "Colorado Division of Reclamation, Mining and Safety",
+      "url": "https://drms.colorado.gov/",
+      "description": "Publishes permitting, reclamation, and GIS data for Colorado coal and mineral mines."
+    },
+    {
+      "state": "Connecticut",
+      "agency": "Connecticut Geological Survey (DEEP)",
+      "url": "https://portal.ct.gov/DEEP/Geology",
+      "description": "State geologic survey with information on mineral resources, quarries, and mapping."
+    },
+    {
+      "state": "Delaware",
+      "agency": "Delaware Geological Survey",
+      "url": "https://www.dgs.udel.edu/",
+      "description": "Publishes mineral industry summaries, maps, and datasets for Delaware."
+    },
+    {
+      "state": "Florida",
+      "agency": "Florida Geological Survey",
+      "url": "https://floridadep.gov/fgs",
+      "description": "State repository for mineral resources, mine reclamation data, and stratigraphic records."
+    },
+    {
+      "state": "Georgia",
+      "agency": "Georgia Environmental Protection Division",
+      "url": "https://epd.georgia.gov/",
+      "description": "Administers Georgia's mining permits and geologic survey resources, including mineral mapping."
+    },
+    {
+      "state": "Hawaii",
+      "agency": "Hawaii Department of Land and Natural Resources",
+      "url": "https://dlnr.hawaii.gov/",
+      "description": "Leases mineral resources on state lands and provides policy documents for mining activities."
+    },
+    {
+      "state": "Idaho",
+      "agency": "Idaho Department of Lands",
+      "url": "https://www.idl.idaho.gov/mining/",
+      "description": "Surface and placer mining permits, reclamation plans, and mining GIS services for Idaho."
+    },
+    {
+      "state": "Illinois",
+      "agency": "Illinois Department of Natural Resources, Office of Mines and Minerals",
+      "url": "https://www2.illinois.gov/dnr/Mining/Pages/default.aspx",
+      "description": "Coal, non-coal, and blasting program data plus annual mineral production in Illinois."
+    },
+    {
+      "state": "Indiana",
+      "agency": "Indiana Department of Natural Resources, Division of Reclamation",
+      "url": "https://www.in.gov/dnr/reclamation/",
+      "description": "Maintains coal mine permitting and bond release data for Indiana mines."
+    },
+    {
+      "state": "Iowa",
+      "agency": "Iowa Geological Survey",
+      "url": "https://iihr.uiowa.edu/igs/",
+      "description": "Geologic mapping, mineral resource assessments, and historical mine data for Iowa."
+    },
+    {
+      "state": "Kansas",
+      "agency": "Kansas Geological Survey",
+      "url": "https://kgs.ku.edu/",
+      "description": "Provides datasets on industrial minerals, mining, and subsurface resources in Kansas."
+    },
+    {
+      "state": "Kentucky",
+      "agency": "Kentucky Energy and Environment Cabinet, Department for Natural Resources",
+      "url": "https://eec.ky.gov/Natural-Resources/Mining/Pages/default.aspx",
+      "description": "Coal and mineral mining permitting, performance data, and reclamation information for Kentucky."
+    },
+    {
+      "state": "Louisiana",
+      "agency": "Louisiana Department of Natural Resources, Office of Mineral Resources",
+      "url": "https://www.dnr.louisiana.gov/page/minerals",
+      "description": "Administers mineral leases and publishes production statistics for Louisiana."
+    },
+    {
+      "state": "Maine",
+      "agency": "Maine Geological Survey",
+      "url": "https://www.maine.gov/dacf/mgs/",
+      "description": "Mineral locality database, maps, and mining permit guidance for Maine."
+    },
+    {
+      "state": "Maryland",
+      "agency": "Maryland Department of the Environment, Mining Program",
+      "url": "https://mde.maryland.gov/programs/LAND/mining/Pages/index.aspx",
+      "description": "Registers surface mines and publishes reclamation and production data for Maryland."
+    },
+    {
+      "state": "Massachusetts",
+      "agency": "Massachusetts Department of Environmental Protection",
+      "url": "https://www.mass.gov/service-details/mining-in-massachusetts",
+      "description": "Guidance on mining, reclamation, and hard rock quarrying data for Massachusetts."
+    },
+    {
+      "state": "Michigan",
+      "agency": "Michigan Department of Environment, Great Lakes, and Energy",
+      "url": "https://www.michigan.gov/egle/about/organization/ogmd/mining",
+      "description": "Oversight of metallic, nonmetallic, and ferrous mining with public permitting data in Michigan."
+    },
+    {
+      "state": "Minnesota",
+      "agency": "Minnesota Department of Natural Resources, Lands and Minerals",
+      "url": "https://www.dnr.state.mn.us/lands_minerals/index.html",
+      "description": "Iron range mine permitting, reclamation, and mineral ownership data for Minnesota."
+    },
+    {
+      "state": "Mississippi",
+      "agency": "Mississippi Department of Environmental Quality, Office of Geology",
+      "url": "https://www.mdeq.ms.gov/geology/",
+      "description": "Publishes mineral resource maps, mining statistics, and reclamation program details for Mississippi."
+    },
+    {
+      "state": "Missouri",
+      "agency": "Missouri Department of Natural Resources, Land Reclamation Program",
+      "url": "https://dnr.mo.gov/land/development/mining",
+      "description": "Regulates metallic and industrial mineral mining with permit and inspection data for Missouri."
+    },
+    {
+      "state": "Montana",
+      "agency": "Montana Department of Environmental Quality, Mining Bureau",
+      "url": "https://deq.mt.gov/Mining",
+      "description": "Maintains mine permits, bonding, and reclamation data for Montana operations."
+    },
+    {
+      "state": "Nebraska",
+      "agency": "University of Nebraska Conservation and Survey Division",
+      "url": "https://snr.unl.edu/csd/",
+      "description": "State geologic survey providing mineral resource data and exploration support for Nebraska."
+    },
+    {
+      "state": "Nevada",
+      "agency": "Nevada Division of Minerals",
+      "url": "https://minerals.nv.gov/",
+      "description": "Publishes Nevada mining claims, production statistics, and abandoned mine inventories."
+    },
+    {
+      "state": "New Hampshire",
+      "agency": "New Hampshire Department of Environmental Services",
+      "url": "https://www.des.nh.gov/",
+      "description": "Mining and sand/gravel permitting data plus environmental oversight for New Hampshire."
+    },
+    {
+      "state": "New Jersey",
+      "agency": "New Jersey Geological and Water Survey",
+      "url": "https://www.nj.gov/dep/njgs/",
+      "description": "Geologic mapping and mineral resources data for New Jersey including mine safety guidance."
+    },
+    {
+      "state": "New Mexico",
+      "agency": "New Mexico Mining and Minerals Division",
+      "url": "https://www.emnrd.nm.gov/mmd/",
+      "description": "Regulates hardrock, coal, and reclamation programs with public data access in New Mexico."
+    },
+    {
+      "state": "New York",
+      "agency": "New York State Department of Environmental Conservation, Division of Mineral Resources",
+      "url": "https://www.dec.ny.gov/lands/5020.html",
+      "description": "Mined land reclamation program data, permit status, and annual reports for New York."
+    },
+    {
+      "state": "North Carolina",
+      "agency": "North Carolina Department of Environmental Quality, Energy, Mineral, and Land Resources",
+      "url": "https://deq.nc.gov/about/divisions/energy-mineral-land-resources",
+      "description": "Provides mining permits, maps, and reclamation records for North Carolina."
+    },
+    {
+      "state": "North Dakota",
+      "agency": "North Dakota Department of Mineral Resources",
+      "url": "https://www.dmr.nd.gov/",
+      "description": "Surface mining and reclamation program resources plus public land mineral data for North Dakota."
+    },
+    {
+      "state": "Ohio",
+      "agency": "Ohio Department of Natural Resources, Division of Mineral Resources Management",
+      "url": "https://ohiodnr.gov/discover-and-learn/safety-conservation/about-ODNR/mineral-resources",
+      "description": "Coal and industrial mineral permitting, inspection, and production data for Ohio."
+    },
+    {
+      "state": "Oklahoma",
+      "agency": "Oklahoma Department of Mines",
+      "url": "https://mines.ok.gov/",
+      "description": "Regulates coal and non-fuel mineral mining with permit and inspection databases for Oklahoma."
+    },
+    {
+      "state": "Oregon",
+      "agency": "Oregon Department of Geology and Mineral Industries (DOGAMI)",
+      "url": "https://www.oregon.gov/dogami/",
+      "description": "Mining permits, lidar, and geospatial datasets for Oregon mineral resources."
+    },
+    {
+      "state": "Pennsylvania",
+      "agency": "Pennsylvania Department of Environmental Protection, Mining Programs",
+      "url": "https://www.dep.pa.gov/Business/Land/Mining/Pages/default.aspx",
+      "description": "Comprehensive mining permit, production, and reclamation records for Pennsylvania."
+    },
+    {
+      "state": "Rhode Island",
+      "agency": "Rhode Island Geographic Information System (RIGIS)",
+      "url": "https://www.rigis.org/",
+      "description": "State geospatial data portal including geology and mining-related layers for Rhode Island."
+    },
+    {
+      "state": "South Carolina",
+      "agency": "South Carolina Department of Health and Environmental Control",
+      "url": "https://scdhec.gov/",
+      "description": "Issues mining permits and maintains reclamation data for South Carolina operations."
+    },
+    {
+      "state": "South Dakota",
+      "agency": "South Dakota Department of Agriculture and Natural Resources, Minerals and Mining",
+      "url": "https://danr.sd.gov/Environment/Mining/",
+      "description": "Licensing, inspection, and GIS data for South Dakota mineral and uranium mining."
+    },
+    {
+      "state": "Tennessee",
+      "agency": "Tennessee Department of Environment and Conservation, Mining Section",
+      "url": "https://www.tn.gov/environment/program-areas/tennr-mining.html",
+      "description": "Surface mining permits, maps, and reclamation oversight for Tennessee."
+    },
+    {
+      "state": "Texas",
+      "agency": "Railroad Commission of Texas, Surface Mining and Reclamation Division",
+      "url": "https://www.rrc.texas.gov/midstream-surface/uranium-surface-mining-and-reclamation-division/",
+      "description": "Texas surface mining permits, enforcement, and abandoned mine programs."
+    },
+    {
+      "state": "Utah",
+      "agency": "Utah Division of Oil, Gas and Mining",
+      "url": "https://ogm.utah.gov/minerals/",
+      "description": "Maintains major and small mine permitting data and GIS services for Utah."
+    },
+    {
+      "state": "Vermont",
+      "agency": "Vermont Geological Survey",
+      "url": "https://dec.vermont.gov/geological-survey",
+      "description": "Publishes bedrock and mineral resources data plus mine site monitoring for Vermont."
+    },
+    {
+      "state": "Virginia",
+      "agency": "Virginia Department of Energy, Mineral Mining",
+      "url": "https://energy.virginia.gov/mineral-mining/",
+      "description": "Surface and underground mineral mining permits, inspections, and mapping for Virginia."
+    },
+    {
+      "state": "Washington",
+      "agency": "Washington State Department of Natural Resources, Washington Geological Survey",
+      "url": "https://www.dnr.wa.gov/programs-and-services/geology",
+      "description": "State geologic survey with mine hazard maps and mineral resource data for Washington."
+    },
+    {
+      "state": "West Virginia",
+      "agency": "West Virginia Department of Environmental Protection, Division of Mining and Reclamation",
+      "url": "https://dep.wv.gov/dmr/Pages/default.aspx",
+      "description": "Coal and quarry permitting, inspection, and reclamation data for West Virginia."
+    },
+    {
+      "state": "Wisconsin",
+      "agency": "Wisconsin Department of Natural Resources, Metallic Mining",
+      "url": "https://dnr.wisconsin.gov/topic/Mines",
+      "description": "Metallic mining permitting, environmental review, and reclamation information for Wisconsin."
+    },
+    {
+      "state": "Wyoming",
+      "agency": "Wyoming Department of Environmental Quality, Land Quality Division",
+      "url": "https://deq.wyoming.gov/landing/land-quality/",
+      "description": "Permitting, bonding, and inspection data for Wyoming coal and non-coal mines."
+    }
+  ]
+}

@@ -25,3 +25,19 @@ The downloader saves each filing under `data/edgar_reports/<CIK>/<accession>/` a
 - **Rate limiting**: Requests are throttled to one every 0.3 seconds by default. Increase the delay with `--throttle` if you encounter rate-limit responses.
 - **Filtering**: Scope to specific form types with `--forms` (e.g. `--forms EX-96 10-K`) or tighten the description match with `--description-filter`.
 - **Paging**: Use `--start` to move deeper into the result set in 100-document increments.
+
+## MSHA Mine Data Retrieval
+
+The Mine Data Retrieval System (MDRS) is exposed through the Department of Labor's Open Data API and requires an API key from [https://api.dol.gov/](https://api.dol.gov/).
+
+```bash
+export DOL_API_KEY="your-key-here"
+
+PYTHONPATH=src python scripts/download_msha_mdrs.py \
+  --endpoint accident \
+  --limit 200 \
+  --chunk-size 100 \
+  --dest data/msha_samples
+```
+
+By default results are saved under `data/msha/<agency>/<endpoint>/` with one JSON payload per chunk and matching `*.metadata.json` files summarising the request parameters. Use `--list-endpoints` to discover available MDRS datasets and `--filter-json`/`--filter-file` to pass a `filter_object` payload directly to the API.
