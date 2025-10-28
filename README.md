@@ -41,3 +41,22 @@ PYTHONPATH=src python scripts/download_msha_mdrs.py \
 ```
 
 By default results are saved under `data/msha/<agency>/<endpoint>/` with one JSON payload per chunk and matching `*.metadata.json` files summarising the request parameters. Use `--list-endpoints` to discover available MDRS datasets and `--filter-json`/`--filter-file` to pass a `filter_object` payload directly to the API.
+
+## Mapping mine locations
+
+After downloading EDGAR exhibits, you can attempt to resolve mine coordinates and generate a simple map. Provide a gazetteer (CSV/JSON/GeoJSON) containing known mine locations to improve matching; otherwise the script only captures explicit coordinates embedded in the filings.
+
+```bash
+# Optional: install folium for the interactive HTML map
+# python -m pip install folium rapidfuzz
+
+PYTHONPATH=src python scripts/map_edgar_mines.py \
+  --edgar-root data/edgar \
+  --gazetteer data/gazetteers/msha_mines.csv \
+  --limit 5 \
+  --geojson-output data/edgar/mine_sites.geojson \
+  --html-output data/edgar/mine_sites.html
+```
+
+- `--gazetteer` may point to any file containing `name, latitude, longitude` columns (CSV) or GeoJSON `FeatureCollection` with point geometry.
+- The script emits a GeoJSON file and, when `folium` is available, an interactive HTML map highlighting the resolved sites.
